@@ -1,4 +1,7 @@
-const createJob = (req, res) => {
+const jobModel = require('../model/job.model');
+
+const createJob = async (req, res) => {
+    const jobs = await jobModel.create(req.body);
     res.json({
         success:true,
         message: "create job api"
