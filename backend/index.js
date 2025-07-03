@@ -12,10 +12,16 @@ app.use(express.json());
 
 
 // connection with mongoose
+// mongoose
+// .connect("mongodb+srv://diwakarkumar9451:q25VWZnOQD6z7ea1@cluster0.cbg1gqz.mongodb.net/jobapp")
+// .then(() => console.log('Db Connected Successfully'))
+// .catch(err => console.log(`Error connecting database`, err));
+
 mongoose
-.connect("mongodb+srv://diwakarkumar9451:q25VWZnOQD6z7ea1@cluster0.cbg1gqz.mongodb.net/jobapp")
-.then(() => console.log('Db Connected Successfully'))
-.catch(err => console.log(`Error connecting database`, err));
+.connect("mongodb://127.0.0.1:27017/jobapp")
+ .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("MongoDB connection error:", err));
+
 //route
 app.use("/api/v1/job",jobRoutes);
 
