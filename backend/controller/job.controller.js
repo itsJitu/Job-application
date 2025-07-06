@@ -26,7 +26,15 @@ const listJob = async(req, res) => {
   });
 };
 
-const updateJob = (req, res) => {
+const updateJob = async (req, res) => {
+  console.log(req.body);
+  const jobs = await jobModel.updateOne({
+    _id: req.body._id
+  }, {
+    $set: {
+      title: req.body.title
+    }
+  }) 
   res.json({
     success: true,
     message: "job are upadted",
